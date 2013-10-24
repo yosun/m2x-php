@@ -74,7 +74,7 @@ class CurlRequest {
     $output = substr($result, $headers['header_size']);
 
     // catch errors
-    if((!empty($curl_error) || empty($output)) && $headers['http_code'] != 204) { 
+    if(!empty($curl_error)) { 
       throw new CurlException("CURL ERROR: $curl_error, Output: $output", $headers['http_code'], null, $headers);
     }
 
