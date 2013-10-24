@@ -43,6 +43,8 @@ class CurlRequest {
   public function request($method, $url, $vars = array()) {
     $this->request = curl_init();
 
+    $method = strtoupper($method);
+
     // set url and agent
     curl_setopt($this->request, CURLOPT_URL, $this->endpoint . $url); 
     curl_setopt($this->request, CURLOPT_USERAGENT, "M2X/" . self::VERSION . " (PHP curl)");
@@ -59,7 +61,7 @@ class CurlRequest {
     $this->set_request_method($method);
     $this->set_request_headers();
 
-    if(in_array($method, array("post", "delete", "put"))) {
+    if(in_array($method, array("POST", "DELETE", "PUT"))) {
       curl_setopt($this->request, CURLOPT_POSTFIELDS, json_encode($vars));
     }
     
