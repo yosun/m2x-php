@@ -52,7 +52,7 @@ class CurlRequest {
  * Executes a HEAD request
  *
  * @param string $url
- * @param array $vars post variables
+ * @param array $vars head variables
  * @return Response
  */
   public function head($url, $vars = array()) {
@@ -89,7 +89,7 @@ class CurlRequest {
  * Executes a PUT request
  *
  * @param string $url
- * @param array $vars post variables
+ * @param array $vars put variables
  * @return Response
  */
   public function put($url, $vars = array()) {
@@ -100,7 +100,7 @@ class CurlRequest {
  * Executes a DELETE request
  *
  * @param string $url
- * @param array $vars post variables
+ * @param array $vars delete variables
  * @return Response
  */
   public function delete($url, $vars = array()) {
