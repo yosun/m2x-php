@@ -1,13 +1,45 @@
 <?php
 
 class CurlRequest {
+
+/**
+ * Version of this API lib
+ */
   const VERSION = "0.0.1";
+
+/**
+ * The selected endpoint
+ *
+ * @var string
+ */
   private $endpoint = "";
+
+/**
+ * The API key to authenticate the request
+ * @var string
+ */
   private $key = "";
 
+/**
+ * Holds the curl instance
+ *
+ * @var integer
+ */
   private $request;
+
+/**
+ * List of additional headers to set for the request
+ *
+ * @var array
+ */
   private $headers = array();
 
+/**
+ * Configuration of this request
+ *
+ * @param string $endpoint the api endpoint
+ * @param string $key the api key
+ */
   public function __construct($endpoint, $key) {
     $this->endpoint = $endpoint;
     $this->key = $key;
@@ -16,6 +48,13 @@ class CurlRequest {
     $this->headers["Content-Type"] = "application/json";
   }
 
+/**
+ * Executes a HEAD request
+ *
+ * @param string $url
+ * @param array $vars post variables
+ * @return Response
+ */
   public function head($url, $vars = array()) {
     return $this->request('head', $url, $vars);
   }
@@ -24,18 +63,46 @@ class CurlRequest {
     return $this->request('options', $url, $vars);
   }
 
+/**
+ * Executes a GET request
+ *
+ * @param string $url
+ * @param array $vars query parameters
+ * @return Response
+ */
   public function get($url, $vars = array()) {
     return $this->request('get', $url, $vars);
   }
 
+/**
+ * Executes a POST request
+ *
+ * @param string $url
+ * @param array $vars post variables
+ * @return Response
+ */
   public function post($url, $vars = array()) {
     return $this->request('post', $url, $vars);
   }
 
+/**
+ * Executes a PUT request
+ *
+ * @param string $url
+ * @param array $vars post variables
+ * @return Response
+ */
   public function put($url, $vars = array()) {
     return $this->request('put', $url, $vars);
   }
 
+/**
+ * Executes a DELETE request
+ *
+ * @param string $url
+ * @param array $vars post variables
+ * @return Response
+ */
   public function delete($url, $vars = array()) {
     return $this->request('delete', $url, $vars);
   }
@@ -83,6 +150,12 @@ class CurlRequest {
     return new Response($headers, $output);
   }
 
+/**
+ * Internal helper method to configure CURL for a specific HTTP verb
+ *
+ * @param string $method
+ * @return void
+ */
   private function set_request_method($method) {
     switch (strtoupper($method)) {
     case 'HEAD':
