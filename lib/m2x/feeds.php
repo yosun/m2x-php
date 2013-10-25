@@ -15,7 +15,7 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * Returns all feeds
  *
  * @return Response
  */
@@ -24,8 +24,9 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * View the feed details
  *
+ * @param $id feed id
  * @return Response
  */
   public function view($id) {
@@ -33,8 +34,9 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * Retrieve list of HTTP requests received lately by the specified feed (up to 100 entries)
  *
+ * @param $id $id feed id
  * @return Response
  */
   public function log($id) {
@@ -42,8 +44,9 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * Get location details of the datasource associated with a specific feed.
  *
+ * @param $id feed id
  * @return Response
  */
   public function location($id) {
@@ -51,8 +54,9 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * Update the current location of the datasource associated with the specified feed
  *
+ * @param $id feed id
  * @return Response
  */
   public function update_location($id, $params = array()) {
@@ -60,8 +64,9 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * Retrieve list of data streams associated with the specified feed.
  *
+ * @param $id feed id
  * @return Response
  */
   public function streams($id) {
@@ -69,8 +74,9 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * Get details of a specific data stream associated with an existing feed.
  *
+ * @param $id feed id
  * @return Response
  */
   public function stream($id, $name) {
@@ -78,8 +84,9 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * List values from an existing data stream associated with a specific feed.
  *
+ * @param $id feed id
  * @return Response
  */
   public function stream_values($id, $name) {
@@ -87,8 +94,11 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
+ * Post values to an existing data stream associated with a specific feed.
  *
+ * @param $id feed id
+ * @param $name
+ * @param array $values
  * @return Response
  */
   public function add_stream_values($id, $name, $values) {
@@ -96,8 +106,11 @@ class Feeds extends CurlRequest {
   }
 
 /**
- * TODO: Write the description
- *
+ * Update an existing data stream associated with the specified feed.
+ * 
+ * @param $id feed id
+ * @param $name
+ * @param $params
  * @return Response
  */
   public function update_stream($id, $name, $params) {
