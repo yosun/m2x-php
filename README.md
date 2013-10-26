@@ -77,7 +77,7 @@ $m2x = new M2X($api_key);
 $response = $m2x->feeds()->stream('<FEED-ID>', $stream);
 ```
 
-### Create/Update Data Stream. ###
+### Create/Update Data Stream ###
 Reference: https://m2x.att.com/developer/documentation/feed#Create-Update-Data-Stream
 
 ```php
@@ -88,7 +88,7 @@ $data = array(
   'value' => 1.23,
   'unit'  => array('label' => 'Celsius')
 );
-$response = $m2x->feeds()->update_stream('<FEED ID>', $stream, $data);
+$response = $m2x->feeds()->update_stream('<FEED-ID>', $stream, $data);
 ```
 
 ### Update Datasource Location ###
@@ -113,7 +113,7 @@ Reference: https://m2x.att.com/developer/documentation/feed#List-Data-Stream-Val
 <?php
 $m2x = new M2X($api_key);
 
-$response = $m2x->feeds()->stream_values('<FEED ID>', $stream);
+$response = $m2x->feeds()->stream_values('<FEED-ID>', $stream);
 ```
 
 ### Post Data Stream Values ###
@@ -128,7 +128,7 @@ $data = array(
   array('value' => 789),
   array('value' => 123.145)
 );
-$response = $m2x->feeds()->add_stream_values($feed_id, $stream, $data);
+$response = $m2x->feeds()->add_stream_values('FEED-ID>, $stream, $data);
 ```
 
 License
