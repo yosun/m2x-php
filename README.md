@@ -128,7 +128,7 @@ $data = array(
   array('value' => 789),
   array('value' => 123.145)
 );
-$response = $m2x->feeds()->add_stream_values('FEED-ID>, $stream, $data);
+$response = $m2x->feeds()->add_stream_values('<FEED-ID>', $stream, $data);
 ```
 
 License
