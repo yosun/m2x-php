@@ -116,4 +116,15 @@ class Feeds extends CurlRequest {
   public function update_stream($id, $name, $params) {
     return $this->put(self::RESOURCE_BASE . "/$id/streams/$name", $params);
   }
+
+/**
+ * Post values to multiple streams at once.
+ * 
+ * @param $id feed id
+ * @param $values is an object with one attribute per each stream to be updated.
+ * @return Response
+ */
+  public function post_multiple($id, $values) {
+    return $this->post(self::RESOURCE_BASE . "/$id", $values);
+  }
 }
