@@ -24,6 +24,20 @@ class Feeds extends CurlRequest {
   }
 
 /**
+ * Retrieve the list of feeds accessible by the authenticated API key that meet the search criteria.
+ *
+ * @param $query is Text to search (optional)
+ * @param $filters
+ * @return Response
+ */
+  public function search($query = null, $filters = array()) {
+    if(!is_null($query)) {
+      $filters['q'] = $query;
+    }
+    return $this->get(self::RESOURCE_BASE, $filters);
+  }
+
+/**
  * View the feed details
  *
  * @param $id feed id

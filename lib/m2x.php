@@ -60,4 +60,13 @@ class M2X {
   public function feeds() {
     return new Feeds($this->endpoint, $this->api_key);
   }
+
+/**
+ * Creates an API instance object for the Batch resource
+ *
+ * @return Batches
+ */
+  public function batches() {
+    return new Batches($this->endpoint, $this->api_key);
+  }
 } 
