@@ -101,10 +101,19 @@ class Feeds extends CurlRequest {
  * List values from an existing data stream associated with a specific feed.
  *
  * @param $id feed id
+ * @param $name stream name
+ * @param $start optional start date
+ * @param $end optional end date
+ * @param $limit optional maximum values to return
  * @return Response
  */
-  public function stream_values($id, $name) {
-    return $this->get(self::RESOURCE_BASE . "/$id/streams/$name/values");
+  public function stream_values($id, $name, $start = null, $end = null, $limit = null) {
+    $params = array();
+    if(!is_null($start)) $params['start'] = $start;
+    if(!is_null($end)) $params['end'] = $end;
+    if(!is_null($limit)) $params['limit'] = $limit;
+
+    return $this->get(self::RESOURCE_BASE . "/$id/streams/$name/values", $params);
   }
 
 /**
