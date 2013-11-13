@@ -147,7 +147,8 @@ class Feeds extends CurlRequest {
  * @param $values is an object with one attribute per each stream to be updated.
  * @return Response
  */
-  public function post_multiple($id, $values) {
-    return $this->post(self::RESOURCE_BASE . "/$id", $values);
+  public function post_multiple($id, $values = array()) {
+    $params = array("values" => $values);
+    return $this->post(self::RESOURCE_BASE . "/$id", $params);
   }
 }
