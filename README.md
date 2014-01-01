@@ -35,7 +35,17 @@ Reference: https://m2x.att.com/developer/documentation/feed#List-Search-Feeds
 <?php
 $m2x = new M2X($api_key);
 
+// list
 $response = $m2x->feeds()->all();
+
+// search
+$query = "<SEARCH STRING>";
+$response = $m2x->feeds()->search($query, array(
+  "page" => 1,
+  "limit" => 100,
+  "tags" => "tag1,tag2"
+));
+
 ```
 
 ### Get details of an existing feed ###
@@ -102,13 +112,17 @@ $data = array(
 $response = $m2x->feeds()->update_stream('<FEED-ID>', $stream, $data);
 ```
 
-### Update Datasource Location ###
+### Read/Update Datasource Location ###
 Reference: https://m2x.att.com/developer/documentation/feed#Update-Datasource-Location
 
 ```php
 <?php
 $m2x = new M2X($api_key);
 
+// read
+$response = $m2x->feeds()->location($feed_id);
+
+// update
 $data = array(
   'name'      => 'Seattle',
   'latitude'  => 47.6097,
@@ -118,7 +132,7 @@ $response = $m2x->feeds()->update_location('<FEED-ID>', $data);
 ```
 
 ### List Data Stream Values ###
-Reference: https://m2x.att.com/developer/documentation/feed#List-Data-Stream-Values
+Reference: https://m2x.att.com/developer/documentation/feed#List-Data-Stream-Values 
 
 ```php
 <?php
